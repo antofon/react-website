@@ -19137,7 +19137,7 @@ var List = React.createClass({
   displayName: 'List',
 
   render: function () {
-    var createItem = function (text, indext) {
+    var createItem = function (text, index) {
       return React.createElement(ListItem, { key: index + text, text: text });
     };
 
