@@ -12,7 +12,7 @@ newItemText:''};
       }
 
       return (
-        div style={
+        div style={largePanelBg} className="col-sm-9">  div className="panel panel-primary">
 
 
         }
