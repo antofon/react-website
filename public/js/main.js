@@ -19190,7 +19190,7 @@ var ListManager = React.createClass({
     }
     return React.createElement(
       'div',
-      { style: largePanelBg, className: 'col-sm-9' },
+      { className: '' },
       React.createElement(
         'div',
         { className: 'panel panel-primary' },
@@ -19204,6 +19204,52 @@ var ListManager = React.createClass({
           )
         ),
         React.createElement('div', { className: 'row panel-body' }),
+        React.createElement(
+          'div',
+          { style: largePanelBg, className: 'row panel-footer' },
+          React.createElement(
+            'div',
+            { className: 'col-sm-4' },
+            React.createElement(
+              'p',
+              null,
+              '15080'
+            ),
+            React.createElement(
+              'small',
+              null,
+              'Shot Views'
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'col-sm-4' },
+            React.createElement(
+              'p',
+              null,
+              '12000'
+            ),
+            React.createElement(
+              'small',
+              null,
+              'Likes'
+            )
+          ),
+          React.createElement(
+            'div',
+            { 'class': 'col-sm-4' },
+            React.createElement(
+              'p',
+              null,
+              '5100'
+            ),
+            React.createElement(
+              'small',
+              null,
+              'Comments'
+            )
+          )
+        ),
         React.createElement(List, { items: this.state.items })
       )
     );
