@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var ListManager = require('./components/List.jsx');
+var ListManager = require('./components/ListManager.jsx');
 
-ReactDOM.render(<ListManager />, document.getElementById('income'));
-ReactDOM.render(<ListManager />, document.getElementById('large-panels'));
-ReactDOM.render(<ListManager />, document.getElementById('ingredients'));
+ReactDOM.render(<ListManager title="Ingredients" />, document.getElementById('income'));
+ReactDOM.render(<ListManager title="ToDo"/>, document.getElementById('large-panels'));
+ReactDOM.render(<ListManager title="Christmas" largePanelBg="#4c4c4c"/>, document.getElementById('ingredients'));
