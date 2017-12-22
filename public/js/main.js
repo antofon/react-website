@@ -19134,20 +19134,19 @@ var ListItem = require('./ListItem.jsx');
 // var ingredients = [{"id":1,"text":"ham"}, {"id":2,"text":"cheese"},{"id":3,"text":"potatoes"}];
 
 var List = React.createClass({
-  displayName: 'List',
+    displayName: 'List',
 
-  render: function () {
-    var createItem = function (text, index) {
-      return React.createElement(ListItem, { key: index + text, text: text });
-    };
+    render: function () {
+        var createItem = function (text, index) {
+            return React.createElement(ListItem, { key: index + text, text: text });
+        };
 
-    return React.createElement(
-      'ul',
-      null,
-      this.props.items.map(createItem)
-    );
-  }
-
+        return React.createElement(
+            'ul',
+            null,
+            this.props.items.map(createItem)
+        );
+    }
 });
 
 module.exports = List;
@@ -19164,7 +19163,7 @@ var ListItem = React.createClass({
             React.createElement(
                 'h4',
                 null,
-                this.props.ingredient
+                this.props.text
             )
         );
     }
@@ -19174,11 +19173,52 @@ module.exports = ListItem;
 
 },{"react":158}],161:[function(require,module,exports){
 var React = require('react');
+var List = require('./List.jsx');
+
+var ListManager = React.createClass({
+  displayName: 'ListManager',
+
+  getInitialState: function () {
+    return { items: [],
+      newItemText: '' };
+  },
+  render: function () {
+    var largePanelBg = {};
+
+    if (this.props.largePanelBg) {
+      largePanelBg.background = this.props.largePanelBg;
+    }
+    return React.createElement(
+      'div',
+      { style: largePanelBg, className: 'col-sm-9' },
+      React.createElement(
+        'div',
+        { className: 'panel panel-primary' },
+        React.createElement(
+          'div',
+          { className: 'panel-heading' },
+          React.createElement(
+            'h3',
+            null,
+            this.props.title
+          )
+        ),
+        React.createElement('div', { className: 'row panel-body' }),
+        React.createElement(List, { items: this.state.items })
+      )
+    );
+  }
+});
+
+module.exports = ListManager;
+
+},{"./List.jsx":159,"react":158}],162:[function(require,module,exports){
+var React = require('react');
 var ReactDOM = require('react-dom');
-var ListManager = require('./components/List.jsx');
+var ListManager = require('./components/ListManager.jsx');
 
-ReactDOM.render(React.createElement(ListManager, null), document.getElementById('income'));
-ReactDOM.render(React.createElement(ListManager, null), document.getElementById('large-panels'));
-ReactDOM.render(React.createElement(ListManager, null), document.getElementById('ingredients'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Ingredients' }), document.getElementById('income'));
+ReactDOM.render(React.createElement(ListManager, { title: 'ToDo' }), document.getElementById('large-panels'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Christmas', largePanelBg: '#4c4c4c' }), document.getElementById('ingredients'));
 
-},{"./components/List.jsx":159,"react":158,"react-dom":29}]},{},[161]);
+},{"./components/ListManager.jsx":161,"react":158,"react-dom":29}]},{},[162]);
