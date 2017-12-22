@@ -1,5 +1,5 @@
 var React = require('react');
-var List = require('./component/List.jsx');
+var List = require('./List.jsx');
 
 var ListManager = React.createClass({
   getInitialState: function(){
@@ -8,20 +8,26 @@ newItemText:''};
 },
   render: function(){
       var largePanelBg = {
-      backgroundColor: '#4c4c4c';
+
       }
 
+      if(this.props.largePanelBg){
+        largePanelBg.background = this.props.largePanelBg;
+      }
       return (
-        div style={largePanelBg} className="col-sm-9">  div className="panel panel-primary">
+        <div style={largePanelBg} className="col-sm-9">
+          <div className="panel panel-primary">
+            <div className="panel-heading">
+              <h3>{this.props.title}</h3>
+            </div>
 
-
-        }
-
-
-
-      )
+            <div className="row panel-body">
+            </div>
+            <List items={this.state.items}/>
+          </div>
+        </div>
+    );
   }
-})
+});
 
-
-<List items={this.state.items}/>
+module.exports = ListManager;
