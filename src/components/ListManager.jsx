@@ -15,32 +15,28 @@ newItemText:''};
         largePanelBg.background = this.props.largePanelBg;
       }
       return (
-        <div className="">
-          <div className="panel panel-primary">
-            <div className="panel-heading">
+        <div className="container topRowPanels">
+          <div className="">
+            <div className="">
               <h3>{this.props.title}</h3>
             </div>
 
-            <div className="row panel-body">
-
-            </div>
-
             <div style={largePanelBg} className="row panel-footer">
-              <div className="col-sm-4">
+              <div className="col s4">
                 <p>
                   15080
                 </p>
                 <small>Shot Views</small>
               </div>
 
-              <div className="col-sm-4">
+              <div className="col s4">
                 <p>
-                  12000
+                  1200
                 </p>
                 <small>Likes</small>
               </div>
 
-              <div class="col-sm-4">
+              <div class="col s4">
                 <p>
                   5100
                 </p>
